@@ -1,8 +1,8 @@
 import java.util.*;
 import java.util.function.Predicate;
 
-// Объявление интерфейса Place с методами для работы с местами
-interface Place {
+// Объявление интерфейса Place6 с методами для работы с местами
+interface Place6 {
     String getName(); // метод для получения имени
 
     void setName(String name); // метод для установки имени
@@ -12,19 +12,19 @@ interface Place {
     void setDescription(String description); // метод для установки описания
 }
 
-// Объявление абстрактного класса Region, который реализует интерфейс Place и интерфейс Cloneable (для клонирования)
-abstract class Region implements Place, Cloneable {
+// Объявление абстрактного класса Region6, который реализует интерфейс Place6 и интерфейс Cloneable (для клонирования)
+abstract class Region6 implements Place6, Cloneable {
     private String name; // поле для хранения имени
     private String description; // поле для хранения описания
 
     // Конструктор по умолчанию
-    public Region() {
+    public Region6() {
         this.name = "Default Name"; // установка значения по умолчанию для имени
         this.description = "Default Description"; // установка значения по умолчанию для описания
     }
 
     // Конструктор с параметрами
-    public Region(String name, String description) {
+    public Region6(String name, String description) {
         this.name = name; // установка имени
         this.description = description; // установка описания
     }
@@ -49,10 +49,10 @@ abstract class Region implements Place, Cloneable {
     // Реализация метода clone() для выполнения глубокого клонирования
     @Override
     protected Object clone() throws CloneNotSupportedException {
-        Region RegionClone = (Region) super.clone(); // Вызываем клонирование в род. классе
-        RegionClone.setName(getName()); // копируем имя
-        RegionClone.setDescription(getDescription()); // копируем описание
-        return RegionClone; // возвращаем клон
+        Region6 Region6Clone = (Region6) super.clone(); // Вызываем клонирование в род. классе
+        Region6Clone.setName(getName()); // копируем имя
+        Region6Clone.setDescription(getDescription()); // копируем описание
+        return Region6Clone; // возвращаем клон
     }
 
     // Переопределение метода hashCode() для корректного сравнения объектов
@@ -68,37 +68,37 @@ abstract class Region implements Place, Cloneable {
         if (this == obj) return true;
         // Если переданный объект равен null или если класс переданного объекта не совпадает с классом текущего объекта, возвращаем false
         if (obj == null || getClass() != obj.getClass()) return false;
-        // Приводим переданный объект к типу Region
-        Region Region = (Region) obj;
+        // Приводим переданный объект к типу Region6
+        Region6 Region6 = (Region6) obj;
         // Сравниваем поля name и description текущего объекта и переданного объекта, возвращаем true, если они равны, иначе false
-        return Objects.equals(name, Region.name) &&
-                Objects.equals(description, Region.description);
+        return Objects.equals(name, Region6.name) &&
+                Objects.equals(description, Region6.description);
     }
 
 
     // Переопределение метода toString() для корректного представления объекта в виде строки
     @Override
     public String toString() {
-        return "Region{" +
+        return "Region6{" +
                 "name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 '}';
     }
 }
 
-// Объявление класса City, который наследуется от класса Region и реализует интерфейс Cloneable
-class City extends Region implements Cloneable {
+// Объявление класса City6, который наследуется от класса Region6 и реализует интерфейс Cloneable
+class City6 extends Region6 implements Cloneable {
     // Замена примитивного типа на класс-обертку
     private Integer population; // поле для хранения численности населения
 
     // Конструктор по умолчанию
-    public City() {
+    public City6() {
         super(); // вызов конструктора суперкласса
         this.population = 0; // установка значения по умолчанию для численности населения
     }
 
     // Конструктор с параметрами
-    public City(String name, String description, Integer population) {
+    public City6(String name, String description, Integer population) {
         super(name, description); // вызов конструктора суперкласса с параметрами
         this.population = population; // установка численности населения
     }
@@ -120,9 +120,9 @@ class City extends Region implements Cloneable {
     // Реализация глубокого клонирования
     @Override
     protected Object clone() throws CloneNotSupportedException {
-        City CityClone = (City) super.clone(); // вызываем клонирование в род. классе
-        CityClone.setPopulation(getPopulation());
-        return CityClone; // возвращаем клон
+        City6 City6Clone = (City6) super.clone(); // вызываем клонирование в род. классе
+        City6Clone.setPopulation(getPopulation());
+        return City6Clone; // возвращаем клон
     }
 
     // Переопределение методов hashCode, equals, toString
@@ -134,15 +134,15 @@ class City extends Region implements Cloneable {
     @Override
     public boolean equals(Object obj) {
         if (this == obj) return true; // если объект сравнивается сам с собой, возвращает true
-        if (!(obj instanceof City)) return false; // если объект не является экземпляром City, возвращает false
+        if (!(obj instanceof City6)) return false; // если объект не является экземпляром City6, возвращает false
         if (!super.equals(obj)) return false; // если объект не равен объекту суперкласса, возвращает false
-        City City = (City) obj; // приводит obj к типу City
-        return Objects.equals(population, City.population); // возвращает true, если поле population текущего объекта равно полю population объекта obj
+        City6 City6 = (City6) obj; // приводит obj к типу City6
+        return Objects.equals(population, City6.population); // возвращает true, если поле population текущего объекта равно полю population объекта obj
     }
 
     @Override
     public String toString() {
-        return "City{" +
+        return "City6{" +
                 "name='" + getName() + '\'' +
                 ", description='" + getDescription() + '\'' +
                 ", population=" + population +
@@ -150,15 +150,15 @@ class City extends Region implements Cloneable {
     }
 }
 
-class Megapolis extends City implements Cloneable {
+class Megapolis6 extends City6 implements Cloneable {
     // Замена примитивного типа на класс-обертку
     private Integer skyscrapers; // поле для хранения количества небоскребов
 
-    public Megapolis() {
+    public Megapolis6() {
         this("Default Name", "Default Description", 0, 0); // конструктор по умолчанию
     }
 
-    public Megapolis(String name, String description, Integer population, Integer skyscrapers) {
+    public Megapolis6(String name, String description, Integer population, Integer skyscrapers) {
         super(name, description, population); // вызов конструктора суперкласса с параметрами
         this.skyscrapers = skyscrapers; // установка количества небоскребов
     }
@@ -180,9 +180,9 @@ class Megapolis extends City implements Cloneable {
     // Реализация глубокого клонирования
     @Override
     protected Object clone() throws CloneNotSupportedException {
-        Megapolis MegapolisClone = (Megapolis) super.clone(); // Вызываем клонирование в род. классе
-        MegapolisClone.setSkyscrapers(getSkyscrapers()); // копируем кол-во небоскребов
-        return MegapolisClone; // возвращаем клон
+        Megapolis6 Megapolis6Clone = (Megapolis6) super.clone(); // Вызываем клонирование в род. классе
+        Megapolis6Clone.setSkyscrapers(getSkyscrapers()); // копируем кол-во небоскребов
+        return Megapolis6Clone; // возвращаем клон
     }
 
     // Переопределение методов hashCode, equals, toString
@@ -194,16 +194,16 @@ class Megapolis extends City implements Cloneable {
     @Override
     public boolean equals(Object obj) {
         if (this == obj) return true; // если объект сравнивается сам с собой, возвращает true
-        if (!(obj instanceof Megapolis))
-            return false; // если объект не является экземпляром Megapolis, возвращает false
+        if (!(obj instanceof Megapolis6))
+            return false; // если объект не является экземпляром Megapolis6, возвращает false
         if (!super.equals(obj)) return false; // если объект не равен объекту суперкласса, возвращает false
-        Megapolis Megapolis = (Megapolis) obj; // приводит obj к типу Megapolis
-        return Objects.equals(skyscrapers, Megapolis.skyscrapers); // возвращает true, если поле skyscrapers текущего объекта равно полю skyscrapers объекта obj
+        Megapolis6 Megapolis6 = (Megapolis6) obj; // приводит obj к типу Megapolis6
+        return Objects.equals(skyscrapers, Megapolis6.skyscrapers); // возвращает true, если поле skyscrapers текущего объекта равно полю skyscrapers объекта obj
     }
 
     @Override
     public String toString() {
-        return "Megapolis{" +
+        return "Megapolis6{" +
                 "name='" + getName() + '\'' +
                 ", description='" + getDescription() + '\'' +
                 ", population=" + getPopulation() +
@@ -212,13 +212,13 @@ class Megapolis extends City implements Cloneable {
     }
 }
 
-// Объявление класса Country, который наследуется от Megapolis и реализует интерфейс Cloneable
-class Country extends Megapolis implements Cloneable {
+// Объявление класса Country, который наследуется от Megapolis6 и реализует интерфейс Cloneable
+class Country extends Megapolis6 implements Cloneable {
     /*
      * Многострочный комментарий, объясняющий общую логику:
      * Т.к. в программе только 2 неабстрактные сущности, добавлена 3-я, чтобы можно было их распределить так:
-     * в list - city
-     * set - megapolis
+     * в list - City6
+     * set - Megapolis6
      * map - country
      */
 
@@ -361,24 +361,24 @@ class MyCollection<T> {
 public class Lab6 {
     public static void main(String[] args) throws CloneNotSupportedException {
         // Создаем объекты
-        City city1 = new City("City 1", "This is a City", 100000);
-        City city2 = new City("City 2", "This is another City", 200000);
-        City city3 = new City("City 3", "This is yet another City", 300000);
+        City6 City61 = new City6("City6 1", "This is a City6", 100000);
+        City6 City62 = new City6("City6 2", "This is another City6", 200000);
+        City6 City63 = new City6("City6 3", "This is yet another City6", 300000);
 
         // Добавляем их в список
-        List<City> cityList = new ArrayList<>();
-        cityList.add(city1);
-        cityList.add(city2);
-        cityList.add(city3);
+        List<City6> City6List = new ArrayList<>();
+        City6List.add(City61);
+        City6List.add(City62);
+        City6List.add(City63);
 
-        // Создаем объекты Megapolis
-        Megapolis megapolis1 = new Megapolis("Megapolis 1", "This is a Megapolis", 1000000, 200);
-        Megapolis megapolis2 = new Megapolis("Megapolis 2", "This is another Megapolis", 2000000, 400);
+        // Создаем объекты Megapolis6
+        Megapolis6 Megapolis61 = new Megapolis6("Megapolis6 1", "This is a Megapolis6", 1000000, 200);
+        Megapolis6 Megapolis62 = new Megapolis6("Megapolis6 2", "This is another Megapolis6", 2000000, 400);
 
         // Добавляем их в Set
-        Set<Megapolis> megapolisSet = new HashSet<>();
-        megapolisSet.add(megapolis1);
-        megapolisSet.add(megapolis2);
+        Set<Megapolis6> Megapolis6Set = new HashSet<>();
+        Megapolis6Set.add(Megapolis61);
+        Megapolis6Set.add(Megapolis62);
 
         // Создаем объекты Country
         Country country1 = new Country("Country 1", "This is a Country", 10000000, 2000, "President 1");
@@ -390,19 +390,19 @@ public class Lab6 {
         countryMap.put(country2.getName(), country2);
 
         // Выводим информацию об объектах
-        InfoPrinter.printAll(cityList); // Выводим информацию об объектах city
-        InfoPrinter.printAll(megapolisSet); // Выводим информацию об объектах megapolis
+        InfoPrinter.printAll(City6List); // Выводим информацию об объектах City6
+        InfoPrinter.printAll(Megapolis6Set); // Выводим информацию об объектах Megapolis6
         InfoPrinter.printAll(countryMap.values()); // Выводим информацию об объектах country
 
         // Ищем город с населением больше 150000
-        City bigCity = CollectionSearcher.findFirst(cityList, city -> city.getPopulation() > 150000);
-        System.out.println("\nFirst city with population over 150000: " + bigCity + "\n");
+        City6 bigCity6 = CollectionSearcher.findFirst(City6List, City6 -> City6.getPopulation() > 150000);
+        System.out.println("\nFirst City6 with population over 150000: " + bigCity6 + "\n");
 
         // Используем наш собственный класс коллекции
-        MyCollection<Place> placeCollection = new MyCollection<>();
-        placeCollection.addAll(cityList); // добавляем все города
-        placeCollection.addAll(megapolisSet); // добавляем все мегаполисы
-        placeCollection.addAll(countryMap.values()); // добавляем все страны
-        placeCollection.printAll(); // выводим всё
+        MyCollection<Place6> Place6Collection = new MyCollection<>();
+        Place6Collection.addAll(City6List); // добавляем все города
+        Place6Collection.addAll(Megapolis6Set); // добавляем все мегаполисы
+        Place6Collection.addAll(countryMap.values()); // добавляем все страны
+        Place6Collection.printAll(); // выводим всё
     }
 }

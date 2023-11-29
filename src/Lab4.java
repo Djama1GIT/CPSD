@@ -1,26 +1,26 @@
 import java.util.Objects; // Импорт класса Objects для работы с объектами
 
 // Объявление интерфейса Place с методами для работы с местами
-interface Place {
+interface Place4 {
     String getName(); // метод для получения имени
     void setName(String name); // метод для установки имени
     String getDescription(); // метод для получения описания
     void setDescription(String description); // метод для установки описания
 }
 
-// Объявление абстрактного класса Region, который реализует интерфейс Place и интерфейс Cloneable (для клонирования)
-abstract class Region implements Place, Cloneable {
+// Объявление абстрактного класса Region4, который реализует интерфейс Place и интерфейс Cloneable (для клонирования)
+abstract class Region4 implements Place, Cloneable {
     private String name; // поле для хранения имени
     private String description; // поле для хранения описания
 
     // Конструктор по умолчанию
-    public Region() {
+    public Region4() {
         this.name = "Default Name"; // установка значения по умолчанию для имени
         this.description = "Default Description"; // установка значения по умолчанию для описания
     }
 
     // Конструктор с параметрами
-    public Region(String name, String description) {
+    public Region4(String name, String description) {
         this.name = name; // установка имени
         this.description = description; // установка описания
     }
@@ -45,10 +45,10 @@ abstract class Region implements Place, Cloneable {
     // Реализация метода clone() для выполнения глубокого клонирования
     @Override
     protected Object clone() throws CloneNotSupportedException {
-        Region regionClone = (Region) super.clone(); // Вызываем клонирование в род. классе
-        regionClone.setName(getName()); // копируем имя
-        regionClone.setDescription(getDescription()); // копируем описание
-        return regionClone; // возвращаем клон
+        Region4 Region4Clone = (Region4) super.clone(); // Вызываем клонирование в род. классе
+        Region4Clone.setName(getName()); // копируем имя
+        Region4Clone.setDescription(getDescription()); // копируем описание
+        return Region4Clone; // возвращаем клон
     }
 
     // Переопределение метода hashCode() для корректного сравнения объектов
@@ -64,37 +64,37 @@ abstract class Region implements Place, Cloneable {
         if (this == obj) return true;
         // Если переданный объект равен null или если класс переданного объекта не совпадает с классом текущего объекта, возвращаем false
         if (obj == null || getClass() != obj.getClass()) return false;
-        // Приводим переданный объект к типу Region
-        Region region = (Region) obj;
+        // Приводим переданный объект к типу Region4
+        Region4 Region4 = (Region4) obj;
         // Сравниваем поля name и description текущего объекта и переданного объекта, возвращаем true, если они равны, иначе false
-        return Objects.equals(name, region.name) &&
-                Objects.equals(description, region.description);
+        return Objects.equals(name, Region4.name) &&
+                Objects.equals(description, Region4.description);
     }
 
 
     // Переопределение метода toString() для корректного представления объекта в виде строки
     @Override
     public String toString() {
-        return "Region{" +
+        return "Region4{" +
                 "name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 '}';
     }
 }
 
-// Объявление класса City, который наследуется от класса Region и реализует интерфейс Cloneable
-class City extends Region implements Cloneable {
+// Объявление класса City4, который наследуется от класса Region4 и реализует интерфейс Cloneable
+class City4 extends Region4 implements Cloneable {
     // Замена примитивного типа на класс-обертку
     private Integer population; // поле для хранения численности населения
 
     // Конструктор по умолчанию
-    public City() {
+    public City4() {
         super(); // вызов конструктора суперкласса
         this.population = 0; // установка значения по умолчанию для численности населения
     }
 
     // Конструктор с параметрами
-    public City(String name, String description, Integer population) {
+    public City4(String name, String description, Integer population) {
         super(name, description); // вызов конструктора суперкласса с параметрами
         this.population = population; // установка численности населения
     }
@@ -116,9 +116,9 @@ class City extends Region implements Cloneable {
     // Реализация глубокого клонирования
     @Override
     protected Object clone() throws CloneNotSupportedException {
-        City cityClone = (City) super.clone(); // вызываем клонирование в род. классе
-        cityClone.setPopulation(getPopulation());
-        return cityClone; // возвращаем клон
+        City4 City4Clone = (City4) super.clone(); // вызываем клонирование в род. классе
+        City4Clone.setPopulation(getPopulation());
+        return City4Clone; // возвращаем клон
     }
 
     // Переопределение методов hashCode, equals, toString
@@ -130,15 +130,15 @@ class City extends Region implements Cloneable {
     @Override
     public boolean equals(Object obj) {
         if (this == obj) return true; // если объект сравнивается сам с собой, возвращает true
-        if (!(obj instanceof City)) return false; // если объект не является экземпляром City, возвращает false
+        if (!(obj instanceof City4)) return false; // если объект не является экземпляром City4, возвращает false
         if (!super.equals(obj)) return false; // если объект не равен объекту суперкласса, возвращает false
-        City city = (City) obj; // приводит obj к типу City
-        return Objects.equals(population, city.population); // возвращает true, если поле population текущего объекта равно полю population объекта obj
+        City4 City4 = (City4) obj; // приводит obj к типу City4
+        return Objects.equals(population, City4.population); // возвращает true, если поле population текущего объекта равно полю population объекта obj
     }
 
     @Override
     public String toString() {
-        return "City{" +
+        return "City4{" +
                 "name='" + getName() + '\'' +
                 ", description='" + getDescription() + '\'' +
                 ", population=" + population +
@@ -146,15 +146,15 @@ class City extends Region implements Cloneable {
     }
 }
 
-class Megapolis extends City implements Cloneable {
+class Megapolis4 extends City4 implements Cloneable {
     // Замена примитивного типа на класс-обертку
     private Integer skyscrapers; // поле для хранения количества небоскребов
 
-    public Megapolis() {
+    public Megapolis4() {
         this("Default Name", "Default Description", 0, 0); // конструктор по умолчанию
     }
 
-    public Megapolis(String name, String description, Integer population, Integer skyscrapers) {
+    public Megapolis4(String name, String description, Integer population, Integer skyscrapers) {
         super(name, description, population); // вызов конструктора суперкласса с параметрами
         this.skyscrapers = skyscrapers; // установка количества небоскребов
     }
@@ -176,9 +176,9 @@ class Megapolis extends City implements Cloneable {
     // Реализация глубокого клонирования
     @Override
     protected Object clone() throws CloneNotSupportedException {
-        Megapolis megapolisClone = (Megapolis) super.clone(); // Вызываем клонирование в род. классе
-        megapolisClone.setSkyscrapers(getSkyscrapers()); // копируем кол-во небоскребов
-        return megapolisClone; // возвращаем клон
+        Megapolis4 Megapolis4Clone = (Megapolis4) super.clone(); // Вызываем клонирование в род. классе
+        Megapolis4Clone.setSkyscrapers(getSkyscrapers()); // копируем кол-во небоскребов
+        return Megapolis4Clone; // возвращаем клон
     }
 
     // Переопределение методов hashCode, equals, toString
@@ -190,16 +190,16 @@ class Megapolis extends City implements Cloneable {
     @Override
     public boolean equals(Object obj) {
         if (this == obj) return true; // если объект сравнивается сам с собой, возвращает true
-        if (!(obj instanceof Megapolis))
-            return false; // если объект не является экземпляром Megapolis, возвращает false
+        if (!(obj instanceof Megapolis4))
+            return false; // если объект не является экземпляром Megapolis4, возвращает false
         if (!super.equals(obj)) return false; // если объект не равен объекту суперкласса, возвращает false
-        Megapolis megapolis = (Megapolis) obj; // приводит obj к типу Megapolis
-        return Objects.equals(skyscrapers, megapolis.skyscrapers); // возвращает true, если поле skyscrapers текущего объекта равно полю skyscrapers объекта obj
+        Megapolis4 Megapolis4 = (Megapolis4) obj; // приводит obj к типу Megapolis4
+        return Objects.equals(skyscrapers, Megapolis4.skyscrapers); // возвращает true, если поле skyscrapers текущего объекта равно полю skyscrapers объекта obj
     }
 
     @Override
     public String toString() {
-        return "Megapolis{" +
+        return "Megapolis4{" +
                 "name='" + getName() + '\'' +
                 ", description='" + getDescription() + '\'' +
                 ", population=" + getPopulation() +
@@ -210,33 +210,33 @@ class Megapolis extends City implements Cloneable {
 
 public class Lab4 {
     public static void main(String[] args) throws CloneNotSupportedException {
-        // Создаем объект класса City
-        City city = new City("City 1", "This is a city", 100000);
-        // Выводим информацию об объекте city
-        System.out.println("City Name: " + city.getName()); // Выводим имя
-        System.out.println("City Description: " + city.getDescription()); // Выводим описание
-        System.out.println("City Population: " + city.getPopulation()); // Выводим популяцию
+        // Создаем объект класса City4
+        City4 City4 = new City4("City4 1", "This is a City4", 100000);
+        // Выводим информацию об объекте City4
+        System.out.println("City4 Name: " + City4.getName()); // Выводим имя
+        System.out.println("City4 Description: " + City4.getDescription()); // Выводим описание
+        System.out.println("City4 Population: " + City4.getPopulation()); // Выводим популяцию
 
-        // Создаем объект класса Megapolis
-        Megapolis megapolis = new Megapolis("Megapolis 1", "This is a megapolis", 1000000, 200);
-        // Выводим информацию об объекте megapolis
-        System.out.println("Megapolis Name: " + megapolis.getName()); // Выводим имя
-        System.out.println("Megapolis Description: " + megapolis.getDescription()); // Выводим описани
-        System.out.println("Megapolis Population: " + megapolis.getPopulation()); //  Выводим популяцию
-        System.out.println("Megapolis Skyscrapers: " + megapolis.getSkyscrapers()); // Выводим небоскребы
+        // Создаем объект класса Megapolis4
+        Megapolis4 Megapolis4 = new Megapolis4("Megapolis4 1", "This is a Megapolis4", 1000000, 200);
+        // Выводим информацию об объекте Megapolis4
+        System.out.println("Megapolis4 Name: " + Megapolis4.getName()); // Выводим имя
+        System.out.println("Megapolis4 Description: " + Megapolis4.getDescription()); // Выводим описани
+        System.out.println("Megapolis4 Population: " + Megapolis4.getPopulation()); //  Выводим популяцию
+        System.out.println("Megapolis4 Skyscrapers: " + Megapolis4.getSkyscrapers()); // Выводим небоскребы
 
-        // Проверяем, является ли объект city экземпляром интерфейса Place
-        System.out.println("City is an instance of Place: " + (city instanceof Place));
-        // Проверяем, является ли объект megapolis экземпляром класса City
-        System.out.println("Megapolis is an instance of City: " + (megapolis instanceof City));
+        // Проверяем, является ли объект City4 экземпляром интерфейса Place
+        System.out.println("City4 is an instance of Place: " + (City4 instanceof Place));
+        // Проверяем, является ли объект Megapolis4 экземпляром класса City4
+        System.out.println("Megapolis4 is an instance of City4: " + (Megapolis4 instanceof City4));
 
         // Демонстрируем глубокое клонирование
-        City cityClone = (City) city.clone();
-        System.out.println("Clone of city: " + cityClone);
+        City4 City4Clone = (City4) City4.clone();
+        System.out.println("Clone of City4: " + City4Clone);
 
         // Демонстрируем переопределенные методы hashCode, equals, toString
-        System.out.println("City hash code: " + city.hashCode()); // Выводим хэш
-        System.out.println("City equals clone: " + city.equals(cityClone));
-        System.out.println("City: " + city.toString()); // Выводим информацию о городе
+        System.out.println("City4 hash code: " + City4.hashCode()); // Выводим хэш
+        System.out.println("City4 equals clone: " + City4.equals(City4Clone));
+        System.out.println("City4: " + City4.toString()); // Выводим информацию о городе
     }
 }
