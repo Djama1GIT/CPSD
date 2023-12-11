@@ -10,7 +10,7 @@ This repository contains my completed laboratory work for the "CPSD" course.
 5. [Console Interface](#console-interface)
 6. [Collections and Error Handling](#collections-and-error-handling)
 7. [Object Persistence](#object-persistence)
-8. [Running Program with "Run" Interface](#running-program-with-run-interface)
+8. [Program "Run" with Interface](#running-program-with-run-interface)
 
 ## 1. Java Syntax <a name="java-syntax"></a>
 In this lab, I studied the syntax of the Java programming language. I learned about variables, data types, control structures, loops, and conditional statements.
@@ -33,5 +33,5 @@ In this lab, I delved into the world of collections in Java. I learned about Arr
 ## 7. Object Persistence <a name="object-persistence"></a>
 This lab focused on persisting objects in Java. I learned how to write objects to a file and read them back using serialization and deserialization techniques.
 
-## 8. Running Program with "Run" Interface <a name="running-program-with-run-interface"></a>
-In this lab, I developed a program with a "Run" interface. This interface allows users to execute the program with a single click or command, making it more user-friendly.
+## 8. Program "Run" Interface <a name="running-program-with-run-interface"></a>
+In this lab, I developed a program "Run" with interface. This is a program for calculating runner statistics.
