@@ -33,5 +33,5 @@ In this lab, I delved into the world of collections in Java. I learned about Arr
 ## 7. Object Persistence <a name="object-persistence"></a>
 This lab focused on persisting objects in Java. I learned how to write objects to a file and read them back using serialization and deserialization techniques.
 
-## 8. Program "Run" Interface <a name="running-program-with-run-interface"></a>
+## 8. Program "Run" with Interface <a name="running-program-with-run-interface"></a>
 In this lab, I developed a program "Run" with interface. This is a program for calculating runner statistics.
